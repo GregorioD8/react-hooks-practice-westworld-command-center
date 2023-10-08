@@ -1,7 +1,9 @@
 import React from "react";
 import { Segment } from "semantic-ui-react";
-
-function ColdStorage() {
+import HostList from "./HostList"
+function ColdStorage({ hosts, onSelect}) {
+const inactiveHosts = hosts.filter((h)=> !h.active)
+console.log(hosts)
   return (
     <Segment.Group className="HQComps">
       <Segment compact>
@@ -9,6 +11,7 @@ function ColdStorage() {
       </Segment>
       <Segment compact>
         {/* Cold Storage contains hosts....but how? Directly? Or is there something else we could use to contain them... */}
+        <HostList hosts={inactiveHosts} onSelect={onSelect}/>
       </Segment>
     </Segment.Group>
   );
